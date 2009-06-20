@@ -26,3 +26,9 @@ task :coverage do
   files = TEST_FILES.join(" ")
   sh "rcov -o coverage #{files} --exclude ^/Library/Ruby/,^init.rb --include lib/ --include-file ^lib/.*\\.rb"
 end
+
+namespace :coverage do
+  task :clean do
+    rm_r 'coverage' if File.directory?('coverage')
+  end
+end
