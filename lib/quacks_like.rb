@@ -53,7 +53,7 @@
 #   end
 module QuacksLike
   
-  VERSION = '1.0.0'
+  VERSION = '1.0.1'
   
   def self.install_everywhere!
     Kernel.class_eval do
