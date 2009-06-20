@@ -20,3 +20,9 @@ Rake::TestTask.new(:test) do |t|
   t.test_files  = TEST_FILES
   t.verbose     = true
 end
+
+desc "Build a code coverage report"
+task :coverage do
+  files = TEST_FILES.join(" ")
+  sh "rcov -o coverage #{files} --exclude ^/Library/Ruby/,^init.rb --include lib/ --include-file ^lib/.*\\.rb"
+end
