@@ -1,4 +1,5 @@
 require 'rake/testtask'
+require 'rake/rdoctask'
 
 task :default => ['test']
 
@@ -31,4 +32,11 @@ namespace :coverage do
   task :clean do
     rm_r 'coverage' if File.directory?('coverage')
   end
+end
+
+Rake::RDocTask.new(:rdoc) do |rd|
+  rd.rdoc_dir = 'doc'
+  rd.main = 'lib/quacks_like.rb'
+  rd.rdoc_files.include("lib/**/*.rb")
+  rd.options << "--all"
 end
