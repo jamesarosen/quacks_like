@@ -53,6 +53,8 @@
 #   end
 module QuacksLike
   
+  VERSION = '1.0.0'
+  
   def self.install_everywhere!
     Kernel.class_eval do
       include ::QuacksLike
